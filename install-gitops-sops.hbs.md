@@ -316,6 +316,7 @@ Now that we have filled in our non-sensitive values, let's extract any sensitive
     export GIT_SSH_PRIVATE_KEY=PRIVATE-KEY
     export GIT_KNOWN_HOSTS=KNOWN-HOST-LIST
     export AGE_KEY=AGE-KEY
+    export TAP_PKGR_REPO=TAP-PACKAGE-OCI-REPOSITORY
     ```
 
     Where:
@@ -326,6 +327,7 @@ Now that we have filled in our non-sensitive values, let's extract any sensitive
     - `PRIVATE-KEY` is the contents of an ssh private key file with read access to your git repository.
     - `HOST-LIST` is the list of known hosts for Git host service.
     - `AGE-KEY` is the contents of the Age key generated earlier.
+    - `TAP-PACKAGE-OCI-REPOSITORY` is the fully-qualified path to the OCI repository hosting the Tanzu Application Platform images. If those have been relocated as described above, then this value is `${INSTALL_REGISTRY_HOSTNAME}/${INSTALL_REPO}/tap-packages`.
 
     Example with the Git repo hosted on GitHub:
 
@@ -336,6 +338,7 @@ Now that we have filled in our non-sensitive values, let's extract any sensitive
     export GIT_SSH_PRIVATE_KEY=$(cat $HOME/.ssh/my_private_key)
     export GIT_KNOWN_HOSTS=$(ssh-keyscan github.com)
     export AGE_KEY=$(cat $HOME/key.txt)
+    export TAP_PKGR_REPO=registry.tanzu.vmware.com/tanzu-application-platform/tap-packages
     ```
 
 2. Generate the TAP Install and Tanzu Sync configuration files 
